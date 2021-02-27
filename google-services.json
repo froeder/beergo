@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1022520334580",
+    "project_id": "cerve-ja",
+    "storage_bucket": "cerve-ja.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1022520334580:android:b344d936436806780f26a1",
+        "android_client_info": {
+          "package_name": "com.froeder.cerveja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1022520334580-gb8n9085qc2ahhcjp9enfarsjtfri48d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAylS1QVg227RDmmIMudCzAnqt-STIIzFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1022520334580-gb8n9085qc2ahhcjp9enfarsjtfri48d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "CerveJa",
+    "slug": "cerveja",
+    "privacy": "public",
+    "platforms": ["android"],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logoa.png",
+    "splash": {
+      "image": "./assets/logoa.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F6C101"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "android": {
+      "useNextNotificationsApi": true,
+      "package": "com.froeder.cerveja",
+      "versionCode": 22,
+      "googleServicesFile": "./google-services.json",
+      "permissions": [
+        "READ_CALENDAR",
+        "WRITE_CALENDAR",
+        "com.android.vending.BILLING"
+      ]
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
+  }
+}

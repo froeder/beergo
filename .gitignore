@@ -102,3 +102,12 @@ dist
 
 # TernJS port file
 .tern-port
+
+/Firebase/*
+Firebase/*
+Firebase/
+components/Firebase
+components/Firebase/*
+/components/Firebase/*
+/components/Firebase/
+/components/Firebase
