@@ -36,6 +36,7 @@
     "react-native-gesture-handler": "~1.6.0",
     "react-native-hide-with-keyboard": "1.2.1",
     "react-native-image-viewing": "^0.2.0",
+    "react-native-maps": "0.27.1",
     "react-native-modals": "^0.22.3",
     "react-native-paper": "^4.2.0",
     "react-native-reanimated": "~1.9.0",

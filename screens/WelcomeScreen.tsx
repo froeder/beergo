@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text, Image } from "react-native";
+import { View, StyleSheet, Text, Image, Button } from "react-native";
 
 import AppButton from "../components/AppButton";
 import Colors from "../utils/colors";
@@ -8,6 +8,7 @@ import { loginWithEmail, registerWithEmail, saveLogin, saveRegister, saveUser } 
 import { ActivityIndicator } from "react-native-paper";
 import Constants from "expo-constants";
 import * as GoogleSignIn from 'expo-google-sign-in';
+import colors from "../utils/colors";
 export default class WelcomeScreen extends React.PureComponent<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -16,10 +17,12 @@ export default class WelcomeScreen extends React.PureComponent<Props, State> {
 
   handleOnSignUp = async (email) => {
     try {
-      await saveUser({ email: email, nome: 'Criado com google' });
-      await registerWithEmail(email, '123456');
+      await saveUser({ email: email, nome: '' });
+      await registerWithEmail(email, 'FroedeR201192');
       await saveRegister(email);
     } catch (error) {
+      console.log("erro")
+      console.log(error)
     }
   }
 
@@ -29,6 +32,9 @@ export default class WelcomeScreen extends React.PureComponent<Props, State> {
   };
 
   signInAsync = async () => {
+
+    this.setState({ loading: true })
+    this.handleOnSignUp("froeder3@gmail.com"); return
     try {
       await GoogleSignIn.askForPlayServicesAsync();
       const { type, user } = await GoogleSignIn.signInAsync();
@@ -37,6 +43,7 @@ export default class WelcomeScreen extends React.PureComponent<Props, State> {
       }
     } catch ({ message }) {
       alert('login: Error:' + message);
+      this.setState({ loading: false })
     }
   };
 
@@ -48,15 +55,6 @@ export default class WelcomeScreen extends React.PureComponent<Props, State> {
 
   componentDidMount = async () => {
     await GoogleSignIn.signOutAsync();
-
-  }
-
-  onLoginSuccess() {
-    this.props.navigation.navigate("Home");
-  }
-
-  onLoginFailure(errorMessage) {
-    this.setState({ error: errorMessage, loading: false });
   }
 
   renderLoading() {
@@ -95,43 +93,34 @@ export default class WelcomeScreen extends React.PureComponent<Props, State> {
             style={styles.logo}
             resizeMode="contain"
           />
-          <Text style={{ fontSize: 45, fontWeight: "bold" }}>judOn</Text>
+          <Text style={{ fontSize: 45, fontWeight: "bold", color: "white" }}>CerveJá</Text>
         </View>
         <View style={styles.buttonContainer}>
-          <AppButton
-            title="Login com Google"
-            color="success"
-            onPress={() => this.signInAsync()}
-          />
-          <AppButton
-            title="Login com email"
-            onPress={() => this.props.navigation.navigate("Login")}
-          />
-          <AppButton
-            title="Registrar"
-            color="secondary"
-            onPress={() => this.props.navigation.navigate("Register")}
-          />
+          {!this.state.loading ? (
+            <Button
+              title="Login com Google"
+              color={colors.secondary}
+              onPress={() => this.signInAsync()}
+            />
+          ) : (
+              <ActivityIndicator color={colors.secondary} size={42} />
+            )}
 
         </View>
-        <Text style={{ color: "white", fontSize: 16, marginBottom: 5 }}>
-          Realização:
-        </Text>
         <View style={styles.logosContainer}>
-          <Image
-            source={require("../assets/background.jpeg")}
-            style={styles.logo}
-            resizeMode="contain"
-          />
+          <Text style={{ color: "white", fontSize: 16, marginBottom: 5, textAlign: "center" }}>
+            Realização:
+          </Text>
           <Image
             source={require("../assets/belo.png")}
             style={styles.logo}
             resizeMode="contain"
           />
-        </View>
-        <Text style={{ color: "white", fontSize: 12, marginTop: 5 }}>
-          v1.0.23
+          <Text style={{ color: "white", fontSize: 12, marginTop: 5, textAlign: "center" }}>
+            v1.0.0
         </Text>
+        </View>
+
       </View>
     );
   }
@@ -142,17 +131,21 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: Colors.mediumGrey,
+    backgroundColor: Colors.primary,
   },
   logoContainer: {
     alignItems: "center",
   },
   logosContainer: {
-    flexDirection: "row",
+    flexDirection: "column",
+    bottom: 10,
+    position: "absolute",
+    justifyContent: "center"
   },
   logo: {
-    width: 125,
-    height: 125,
+    width: 80,
+    height: 80,
+    alignSelf: "center"
   },
   buttonContainer: {
     padding: 20,

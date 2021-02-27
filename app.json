@@ -6,9 +6,9 @@
     "platforms": ["android"],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logoa.png",
+    "icon": "./assets/icone.png",
     "splash": {
-      "image": "./assets/logoa.png",
+      "image": "./assets/icone.png",
       "resizeMode": "contain",
       "backgroundColor": "#F6C101"
     },

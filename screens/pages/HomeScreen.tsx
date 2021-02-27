@@ -90,7 +90,6 @@ export default class HomeScreen extends React.Component<Props, State>{
   }
 
   render() {
-    const image = require("../../assets/background.jpeg");
     const windowHeight = Dimensions.get('window').height;
     const windowWidth = Dimensions.get('window').width;
 
@@ -100,68 +99,13 @@ export default class HomeScreen extends React.Component<Props, State>{
         <ScrollView>
           <>
             <View style={styles.container}>
-              <Text style={styles.texto}>
-                Queremos te conhecer, resposda esse questionário, não leva mais do que 30 segundos.
-              </Text>
-              <Button
-                style={styles.buttonQuestao}
-                color={colors.success}
-                onPress={() => this.props.navigation.navigate("Questionário")}
-              >
-                <Text style={{ ...styles.texto, color: 'white' }}>Responder</Text>
-              </Button>
-            </View>
-            <View style={styles.container}>
-              <Text style={styles.texto}>
-                É novo por aqui? Se não for também não tem problemas, o Sensei tem um recadinho para todos vocês. Obrigado por estarem aqui!
-              </Text>
-            </View>
-            <YoutubePlayer
-              height={225}
-              play={this.state.playingWelcome}
-              videoId={"TfjnFvULMlE"}
-              onChangeState={(state) => this.onStateChangeWelcome(state)}
-            />
-            <View style={styles.container}>
-              <Text style={styles.titulo}>
-                Está gostando do aplicativo? Que tal compartilhar com seus amigos?
-              </Text>
-              <Button
-                color={colors.white}
-                contentStyle={styles.buttonShare}
-                onPress={() => this.handleShare()}
-              >
-                <Text>Compartilhe</Text>
-              </Button>
-            </View>
-            <View style={styles.container}>
-              <Text
-                style={styles.texto}>
-                Confira nossa entrevista para o SBT interior que foi exibida no dia 01/01/2021
-              </Text>
-            </View>
-
-            <YoutubePlayer
-              height={225}
-              play={this.state.playing}
-              videoId={"0kQfSF_Rhqs"}
-              onChangeState={(state) => this.onStateChange(state)}
-            />
-
-
-            <View style={{ ...styles.container, marginTop: 10 }}>
-              <Image source={image} resizeMode="contain" style={{ width: windowWidth, height: 200 }} />
-            </View>
-            <View style={styles.container}>
               <Text
                 style={styles.texto}
               >
                 Versão 1.0.24
             </Text>
             </View>
-
           </>
-
         </ScrollView>
       </>
     );
